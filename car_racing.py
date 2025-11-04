@@ -24,8 +24,8 @@ class CarRacing:
         self.crashed = False
 
         self.carImg = pygame.image.load(self.root_path + "/img/car.png")
-        self.car_x_coordinate = (self.display_width * 0.45)
-        self.car_y_coordinate = (self.display_height * 0.8)
+        self.car_x_coordinate = self.display_width * 0.45
+        self.car_y_coordinate = self.display_height * 0.8
         self.car_width = 49
 
         # enemy_car
@@ -50,7 +50,7 @@ class CarRacing:
 
     def racing_window(self):
         self.gameDisplay = pygame.display.set_mode((self.display_width, self.display_height))
-        pygame.display.set_caption('Car Race -- Anuj')
+        pygame.display.set_caption("Car Race -- Anuj")
         self.run_car()
 
     def run_car(self):
@@ -89,7 +89,12 @@ class CarRacing:
                 self.bg_speed += 1
 
             if self.car_y_coordinate < self.enemy_car_starty + self.enemy_car_height:
-                if self.car_x_coordinate > self.enemy_car_startx and self.car_x_coordinate < self.enemy_car_startx + self.enemy_car_width or self.car_x_coordinate + self.car_width > self.enemy_car_startx and self.car_x_coordinate + self.car_width < self.enemy_car_startx + self.enemy_car_width:
+                if (
+                    self.car_x_coordinate > self.enemy_car_startx
+                    and self.car_x_coordinate < self.enemy_car_startx + self.enemy_car_width
+                    or self.car_x_coordinate + self.car_width > self.enemy_car_startx
+                    and self.car_x_coordinate + self.car_width < self.enemy_car_startx + self.enemy_car_width
+                ):
                     self.crashed = True
                     self.display_message("Game Over !!!")
 
@@ -142,6 +147,6 @@ class CarRacing:
         self.gameDisplay.blit(text, (600, 560))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     car_racing = CarRacing()
     car_racing.racing_window()
