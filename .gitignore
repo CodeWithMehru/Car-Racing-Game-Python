@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+env/
+.venv/
+venv/
+ENV/
+
+# Pillow / images (keep images, but ignore generated temp files)
+*.db
+*.sqlite3
+
+# macOS
+.DS_Store
+
+# editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# logs
+*.log
+
+# distribution
+build/
+dist/
+*.egg-info/
+
